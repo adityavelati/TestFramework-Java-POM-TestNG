@@ -32,9 +32,9 @@ public class Browser {
             case "Chrome":
                 ChromeOptions chrome_options = new ChromeOptions();
                 if (System.getProperty("os.name").toLowerCase().contains("mac")) {
-                    System.setProperty("webdriver.chrome.driver", seleniumFolderPath + "/chromedriver");
+                    System.setProperty("webdriver.chrome.driver", seleniumFolderPath + "/test/java/resources/drivers/chromedriver");
                 } else{
-                    System.setProperty("webdriver.chrome.driver", seleniumFolderPath + "\\chromedriver.exe");
+                    System.setProperty("webdriver.chrome.driver", seleniumFolderPath + "\\test\\java\\resources\\drivers\\chromedriver.exe");
                 }
                 capabilities.setBrowserName("chrome");
                 capabilities.setCapability(ChromeOptions.CAPABILITY, chrome_options);

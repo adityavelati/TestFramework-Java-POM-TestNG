@@ -5,8 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.shared.Page;
 
-import java.util.List;
-
 /**
  * Created by aditya on 08/2019.
  */
