@@ -28,42 +28,38 @@ public class Browser {
 
         seleniumFolderPath = "src";
 
-        switch (browser) {
-            case "Chrome":
-                ChromeOptions chrome_options = new ChromeOptions();
-                if (System.getProperty("os.name").toLowerCase().contains("mac")) {
-                    System.setProperty("webdriver.chrome.driver", seleniumFolderPath + "/test/java/resources/drivers/chromedriver");
-                } else{
-                    System.setProperty("webdriver.chrome.driver", seleniumFolderPath + "\\test\\java\\resources\\drivers\\chromedriver.exe");
-                }
-                capabilities.setBrowserName("chrome");
-                capabilities.setCapability(ChromeOptions.CAPABILITY, chrome_options);
-                _driver = new ChromeDriver(capabilities);
-                break;
-            case "Safari":
-                capabilities.setBrowserName("safari");
-                _driver = new SafariDriver();
-                break;
-            case "Firefox":
-                FirefoxProfile ff_profile = new FirefoxProfile();
-                ff_profile.setPreference("geo.prompt.testing", true);
-                ff_profile.setPreference("geo.prompt.testing.allow", true);
-                System.setProperty("webdriver.gecko.driver", seleniumFolderPath + "geckodriver");
-                capabilities.setBrowserName("firefox");
-                capabilities.setCapability(FirefoxDriver.PROFILE, ff_profile);
-                _driver = new FirefoxDriver(capabilities);
-                break;
-            case "InternetExplorer":
-                System.setProperty("webdriver.ie.driver", seleniumFolderPath + "IEDriverServer.exe");
-                capabilities.setBrowserName("internet explorer");
-                break;
-            case "Edge":
-                System.setProperty("webdriver.edge.driver", seleniumFolderPath + "MicrosoftWebDriver.exe");
-                capabilities.setBrowserName("edge");
-                break;
-            default:
-                System.out.println("Invalid browser passed in: " + browser);
-                break;
+        if (browser.equals("Chrome")) {
+
+            ChromeOptions chrome_options = new ChromeOptions();
+            if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+                System.setProperty("webdriver.chrome.driver", seleniumFolderPath + "/test/resources/drivers/chromedriver");
+            } else {
+                System.setProperty("webdriver.chrome.driver", seleniumFolderPath + "\\test\\resources\\drivers\\chromedriver.exe");
+            }
+            capabilities.setBrowserName("chrome");
+            capabilities.setCapability(ChromeOptions.CAPABILITY, chrome_options);
+            _driver = new ChromeDriver(capabilities);
+        } else if (browser.equals("Safari")) {
+            capabilities.setBrowserName("safari");
+            _driver = new SafariDriver();
+        } else if (browser.equals("Firefox")) {
+            FirefoxProfile ff_profile = new FirefoxProfile();
+            ff_profile.setPreference("geo.prompt.testing", true);
+            ff_profile.setPreference("geo.prompt.testing.allow", true);
+            System.setProperty("webdriver.gecko.driver", seleniumFolderPath + "geckodriver");
+            capabilities.setBrowserName("firefox");
+            capabilities.setCapability(FirefoxDriver.PROFILE, ff_profile);
+            _driver = new FirefoxDriver(capabilities);
+        } else if (browser.equals("InternetExplorer")) {
+
+            System.setProperty("webdriver.ie.driver", seleniumFolderPath + "IEDriverServer.exe");
+            capabilities.setBrowserName("internet explorer");
+        } else if (browser.equals("Edge")) {
+
+            System.setProperty("webdriver.edge.driver", seleniumFolderPath + "MicrosoftWebDriver.exe");
+            capabilities.setBrowserName("edge");
+        } else {
+            System.out.println("Invalid browser passed in: " + browser);
         }
 
         _driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);

@@ -6,4 +6,6 @@ Web test automation example project using IntelliJ IDEA Community, Java, Maven, 
 * Maven - Build and package management
 * TestNG - Test execution and Reporting
 
-
+## Run automation scripts following ways
+* Right click testng.xml from Eclipse or IntelliJ and run as testNG test
+* From Maven --- mvn clean verify 
