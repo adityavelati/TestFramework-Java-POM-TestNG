@@ -8,4 +8,6 @@ Web test automation example project using IntelliJ IDEA Community, Java, Maven, 
 
 ## Run automation scripts following ways
 * Right click testng.xml from Eclipse or IntelliJ and run as testNG test
-* From Maven --- mvn clean verify 
+* Running through Maven, please use below command
+ 
+mvn clean test -U -PRegression
