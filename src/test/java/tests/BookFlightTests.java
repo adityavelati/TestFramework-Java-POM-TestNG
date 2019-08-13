@@ -5,12 +5,11 @@ import helper.TestHelper;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.*;
-import pages.shared.Page;
 
 /**
  * Created by aditya on 08/2019.
  */
-public class LoginPageTests extends TestHelper {
+public class BookFlightTests extends TestHelper {
 
     Browser browser;
     LoginPage loginPage;

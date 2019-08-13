@@ -12,7 +12,7 @@
             </run>
         </groups>
         <classes>
-            <class name="tests.LoginPageTests" />
+            <class name="tests.BookFlightTests" />
         </classes>
     </test>
 </suite>
