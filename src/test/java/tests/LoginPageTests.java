@@ -44,6 +44,7 @@ public class LoginPageTests extends TestHelper {
         //Enter all From and To in Flight details page
         selectFlightPage = new SelectFlightPage(browser);
         flightDetailsPage.enterFlightDetails("oneway","Sydney", "London", "first");
+        flightDetailsPage.clickOnContinue();
 
         //Verify select Flight page is displayed
         Assert.assertEquals(selectFlightPage.isReserveFlights(), true);

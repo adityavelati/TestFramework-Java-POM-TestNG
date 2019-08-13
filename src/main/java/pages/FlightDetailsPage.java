@@ -1,6 +1,7 @@
 package pages;
 
 import helper.Browser;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,7 +24,7 @@ public class FlightDetailsPage extends Page {
     @FindBy(css = "input[value='roundtrip']")
     private WebElement roundTrip;
 
-    @FindBy(name = "findflight")
+    @FindBy(name = "findFlights")
     private WebElement findFlights;
 
     @FindBy(name = "fromPort")
@@ -56,6 +57,7 @@ public class FlightDetailsPage extends Page {
         }
         Select from = new Select(fromPort);
         from.selectByValue(fromPlace);
+
         Select to = new Select(toPort);
         to.selectByValue(toPlace);
 
@@ -66,6 +68,9 @@ public class FlightDetailsPage extends Page {
         } else {
             economyClass.click();
         }
+    }
+
+    public void clickOnContinue(){
         findFlights.click();
     }
 
